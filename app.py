@@ -13,7 +13,7 @@ st.write("Enter employee details to estimate their expected salary.")
 # Input form
 experience = st.slider("Years of Experience", 0, 30, 1)
 education = st.selectbox("Education Level", ["Bachelor's", "Master's", "PhD"])
-job_title = st.selectbox("Job Title", ["Software Engineer", "Data Scientist", "Manager"])
+job_title = st.selectbox("Job Title", ["Software Engineer", "Manager"])
 
 # Prepare input data
 def prepare_input(exp, edu, job):
@@ -21,7 +21,6 @@ def prepare_input(exp, edu, job):
         'YearsExperience': exp,
         "EducationLevel_Master's": 1 if edu == "Master's" else 0,
         'EducationLevel_PhD': 1 if edu == 'PhD' else 0,
-        'JobTitle_Data Scientist': 1 if job == 'Data Scientist' else 0,
         'JobTitle_Manager': 1 if job == 'Manager' else 0,
         'JobTitle_Software Engineer': 1 if job == 'Software Engineer' else 0
     }])
