@@ -17,14 +17,14 @@ job_title = st.selectbox("Job Title", ["Software Engineer", "Data Scientist", "M
 
 # Prepare input data
 def prepare_input(exp, edu, job):
-    data = {
-        'YearsExperience': [exp],
-        'EducationLevel_Master\'s': [1 if edu == "Master's" else 0],
-        'EducationLevel_PhD': [1 if edu == "PhD" else 0],
-        'JobTitle_Data Scientist': [1 if job == "Data Scientist" else 0],
-        'JobTitle_Manager': [1 if job == "Manager" else 0]
-    }
-    return pd.DataFrame(data)
+    return pd.DataFrame([{
+        'YearsExperience': exp,
+        "EducationLevel_Master's": 1 if edu == "Master's" else 0,
+        'EducationLevel_PhD': 1 if edu == 'PhD' else 0,
+        'JobTitle_Data Scientist': 1 if job == 'Data Scientist' else 0,
+        'JobTitle_Manager': 1 if job == 'Manager' else 0,
+        'JobTitle_Software Engineer': 1 if job == 'Software Engineer' else 0
+    }])
 
 # Predict salary
 if st.button("Predict Salary"):
